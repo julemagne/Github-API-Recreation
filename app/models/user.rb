@@ -1,7 +1,7 @@
 class User
 
-  def initialize(login)
-    @login = login
+  def initialize(username)
+    @username = username
     @response = get_response
   end
 
@@ -34,7 +34,7 @@ class User
   end
 
   def starred
-    @response[""]
+    @response["starred_url"]
   end
 
   def following
@@ -45,13 +45,13 @@ class User
     @response["organizations_url"]
   end
 
-  private def get_response
-    file = File.join(Rails.root, 'test','models','json_github','user.json')
-    JSON.parse(File.read(file))
-  end
   # private def get_response
-  #   key = ENV['GITHUB_KEY']
-  #   HTTParty.get("damenate:#{key} https://api.github.com/users/#{@login}")
+  #   file = File.join(Rails.root, 'test','models','json_github','user.json')
+  #   JSON.parse(File.read(file))
   # end
+  private def get_response
+    key = ENV['GITHUB_TOKEN']
+    HTTParty.get("https://api.github.com/?access_token=#{"GITHUB_TOKEN"}")
+  end
 
 end

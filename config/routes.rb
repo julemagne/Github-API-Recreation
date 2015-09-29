@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'profiles#search'
-
   get 'profiles/search'
-
   get 'profiles/result'
 
 
