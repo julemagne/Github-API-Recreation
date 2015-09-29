@@ -1,5 +1,5 @@
-<p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
-  <label for="name_field">Name:</label>
-  <input name="name"></input>
-</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
+<%= form_tag 'profiles/profile' do %>
+<%= text_field_tag "name" "Enter your name here."%>
+<%= submit_tag "Name" %>
+<% end %>
