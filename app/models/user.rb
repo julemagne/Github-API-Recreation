@@ -9,29 +9,33 @@ class User
 
   def pull_repo_info
     repo_array = []
-    @repos.each do |repo|
-      repo_array << {
-        name: repo["name"],
-        description: repo["description"],
-        updated_at: format_updated_time(repo["pushed_at"]),
-        language: repo["language"],
-        stargazers_url: repo["stargazers_url"],
-        stargazers_count: repo["stargazers_count"],
-        forks_url: repo["forks_url"],
-        forks_count: repo["forks_count"],
-        html_url: repo["html_url"],
-        sort_field: repo["pushed_at"]
-      }
+    begin
+      @repos.each do |repo|
+        repo_array << {
+          name: repo["name"],
+          description: repo["description"],
+          updated_at: format_updated_time(repo["pushed_at"]),
+          language: repo["language"],
+          stargazers_url: repo["stargazers_url"],
+          stargazers_count: repo["stargazers_count"],
+          forks_url: repo["forks_url"],
+          forks_count: repo["forks_count"],
+          html_url: repo["html_url"],
+          sort_field: repo["pushed_at"]
+        }
+      end
+      repo_array.sort_by{|hash| hash[:sort_field]}.reverse
+    rescue
+      []
     end
-    repo_array.sort_by{|hash| hash[:sort_field]}.reverse
   end
 
   private
 
     def self.get_repos(user)
-      # HTTParty.get("https://api.github.com/users/#{user}/repos")
-      file = "./test/json/results.json"
-      JSON.parse(File.read(file))
+      HTTParty.get("https://api.github.com/users/#{user}/repos")
+      # file = "./test/json/results.json"
+      # JSON.parse(File.read(file))
     end
 
     def format_updated_time(updated)
