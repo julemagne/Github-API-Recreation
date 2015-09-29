@@ -3,7 +3,5 @@ class ProfilesController < ApplicationController
   end
 
   def result
-    @name_result = Name.new(params[:name])
-
   end
 end
