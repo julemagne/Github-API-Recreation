@@ -11,19 +11,32 @@
     </form>
   </div>
 </nav>
-<div class="vcard">
-  <h1 class="vard-names">>
-    <span class="vcard-fullname"></span>
-    <span class="vcard-username"></span>
-  </h1>
 
-  <ul class="vcard-details">
-    <li><span class="octicon octicon-location"></span><%= @location %></li>
-    <li><span class="octicon octicon-link"></span><%= @link %></li>
-    <li><span class="octicon octicon-clock"></span><%= @date_joined %></li>
-  </ul>
+<div class="main">
 
-  <div class="vcard-stats"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="vcard col-md-4">
+      <h1 class="vard-names">>
+        <a href="https://github.com/settings/profile" class="vcard-avatar"><img /></a>
+        <span class="vcard-fullname"></span>
+        <span class="vcard-username"></span>
+      </h1>
 
-  <div class="vcard-organizations"></div>
+      <ul class="vcard-details">
+        <li><span class="octicon octicon-location"></span><%= @location %></li>
+        <li><span class="octicon octicon-link"></span><%= @link %></li>
+        <li><span class="octicon octicon-clock"></span><%= @date_joined %></li>
+      </ul>
+
+      <div class="vcard-stats"></div>
+
+      <div class="vcard-organizations"></div>
+    </div>
+
+    <div class="col-md-8">
+
+    </div>
+  </div>
+</div>
 </div>
