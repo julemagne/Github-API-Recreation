@@ -3,5 +3,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile
+    #params[:name]
   end
 end
