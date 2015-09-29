@@ -1,5 +1,17 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
-<%= form_tag 'profiles/profile' do %>
-<%= text_field_tag "name" "Enter your name here."%>
-<%= submit_tag "Name" %>
-<% end %>
+<div class="container">
+  <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default" >
+      <div class="panel-body" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
+        <div class="form-group">
+          <%= form_tag 'profiles/profile' do %>
+            <p><%= text_field_tag :name, nil, placeholder: "GitHub username", class: "form-control" %></p>
+
+            <p><%= submit_tag "Get Profile", class:"btn btn-primary" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
