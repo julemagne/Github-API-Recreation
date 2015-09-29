@@ -19,18 +19,19 @@ class User
         stargazers_count: repo["stargazers_count"],
         forks_url: repo["forks_url"],
         forks_count: repo["forks_count"],
-        html_url: repo["html_url"]
+        html_url: repo["html_url"],
+        sort_field: repo["pushed_at"]
       }
     end
-    repo_array
+    repo_array.sort_by{|hash| hash[:sort_field]}.reverse
   end
 
   private
 
     def self.get_repos(user)
-      HTTParty.get("https://api.github.com/users/#{user}/repos")
-      # file = "./test/json/results.json"
-      # JSON.parse(File.read(file))
+      # HTTParty.get("https://api.github.com/users/#{user}/repos")
+      file = "./test/json/results.json"
+      JSON.parse(File.read(file))
     end
 
     def format_updated_time(updated)
