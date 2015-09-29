@@ -1,0 +1,9 @@
+
+<h1>Search for a User</h1>
+<%= form_tag users_results_path do %>
+  <p>
+    <%= label_tag 'username', 'Enter a username:' %>
+    <%= text_field_tag 'username' %>
+  </p>
+  <%= submit_tag "Find user!" %>
+<% end %>
