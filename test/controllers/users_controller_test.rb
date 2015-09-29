@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GProfileControllerTest < ActionController::TestCase
+class UsersControllerTest < ActionController::TestCase
   test "should get search" do
     get :search
     assert_response :success
