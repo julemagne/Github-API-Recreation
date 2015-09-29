@@ -7,8 +7,6 @@ class User
     @repos = response
   end
 
-
-
   def pull_repo_info
     repo_array = []
     @repos.each do |repo|
@@ -30,9 +28,9 @@ class User
   private
 
     def self.get_repos(user)
-      #HTTParty.get("https://api.github.com/users/#{user}/repos")
-      file = "./test/json/results.json"
-      JSON.parse(File.read(file))
+      HTTParty.get("https://api.github.com/users/#{user}/repos")
+      # file = "./test/json/results.json"
+      # JSON.parse(File.read(file))
     end
 
     def format_updated_time(updated)
@@ -70,10 +68,11 @@ class User
           end
         else
           #Years are equal
-        "Updated on #{update_time.strftime("%b")} #{updated[:day]}"
-      end
+          "Updated on #{update_time.strftime("%b")} #{updated[:day]}"
+        end
     else
       "Updated on #{update_time.strftime("%b")} #{updated[:day]}, #{updated[:year]}"
+    end
   end
 
     def time_hash(time)
