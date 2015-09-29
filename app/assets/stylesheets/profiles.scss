@@ -5,3 +5,21 @@
   width:100%;
   background-color:gray;
 }
+
+.octicon {
+  font-family: "octicons.eot";
+}
+
+.octicon-location::before {
+  content: '\f060';
+}
+
+.octicon-link::before {
+  content: '\f05c';
+}
+
+.octicon-clock::before {
+  content: '\f046';
+}
+
+
