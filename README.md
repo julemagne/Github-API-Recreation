@@ -31,6 +31,7 @@ class User
   end
 ```    
 
+
 Below is an example of some of the HTML code that was written in the views file:
 ```html
  <form class="navbar-form" role="search">
@@ -45,3 +46,36 @@ Below is an example of some of the HTML code that was written in the views file:
         <li><a href=""></li>
       </ul>
 ```
+
+## Test Driven Development
+A critical part of the learning process is to continue our practice with Test Driven Development(TDD). Below is an example of some of TTD:
+```ruby
+def test_user_name
+  julie=User.new("julemagne")
+  assert_equal "julemagne", julie.user_name
+end
+
+def test_followers_count
+  julie=User.new("julemagne")
+  assert_equal 6, julie.followers
+end
+
+def test_joined_date
+  julie=User.new("julemagne")
+  assert_equal "January 22, 2014", julie.joined_date
+end
+```
+
+
+### Contributors
+The project was an excellent learning experience with practice in merging repositories and pair-programming. As a team we performed sprints every two hours, followed by stand-ups, and divvied out tasks accordingly. Below is a list of of the contributor:
+- David Bernheisel
+- Julie David
+- Doug Bryant
+- Blake Strickland
+- Tyler Rockwell
+- Renee Quijano
+- Josh McKelvey
+- Ryan Graham
+- Da-Me Kim
+- Anthony Ellis
