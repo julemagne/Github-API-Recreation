@@ -40,29 +40,7 @@ class User
       updated = time_hash(update_time)
       current = time_hash(Time.now)
 
-        #Check if updated this month
-      # if updated[:minute] == current[:minute]
-      #   difference = current[:second] - updated[:second]
-      #   return "Updated #{difference} seconds ago" unless difference == 1
-      #   return "Updated a second ago"
-      #   #Check if updated today
-      # elsif updated[:hour] == current[:hour]
-      #   difference = current[:minute] - updated[:minute]
-      #   return "Updated #{difference} minutes ago" unless difference == 1
-      #   return "Updated a minute ago"
-      # elsif updated[:day] == current[:day]
-      #   difference = current[:hour] - updated[:hour]
-      #   return "Updated #{difference} hours ago" unless difference == 1
-      #   return "Updated an hour ago"
-      # elsif updated[:month] == current[:month]
-      #   difference = current[:day] - updated[:day]
-      #   return "Updated #{difference} days ago" unless difference == 1
-      #   return "Updated a day ago"
-      # else
-      #   output = "Updated on #{update_time.strftime("%b")} #{update_time.strftime("%e")}"
-      #   output << ", #{update_time.strftime("%Y")}" unless current[:year] == updated[:year]
-      # end
-      # output
+      #Begin MONSTROUS if statement
       if updated[:year] == current[:year]
         if updated[:month] == current[:month]
           if updated[:day] == current[:day]
@@ -95,8 +73,7 @@ class User
         "Updated on #{update_time.strftime("%b")} #{updated[:day]}"
       end
     else
-      "Updated on #{update_time.strftime("%b")} #{updated[:day]}, #{updated[:year]}" unless current[:year] == updated[:year]
-    end
+      "Updated on #{update_time.strftime("%b")} #{updated[:day]}, #{updated[:year]}"
   end
 
     def time_hash(time)
