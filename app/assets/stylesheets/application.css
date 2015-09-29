@@ -15,3 +15,9 @@
  *= require sprockets-octicons
 
  */
+
+
+#loginbox {
+    margin-top: 30px;
+    text-align: center;
+}
