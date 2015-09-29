@@ -1,29 +1,50 @@
 <nav class="navbar navbar-default">
-  <div class="container">
-    <a href="https://www.github.com">
-      <span class="mega-octicon octicon-mark-github"></span>
-    </a>
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input class="form-control" placeholder="Search" type="text">
-      </div>
-      <button class="btn btn-default" type="submit">Submit</button>
-    </form>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="cathub-link" href="https://www.github.com">
+        <span class="mega-octicon octicon-mark-github"></span>
+      </a>
+
+      <form class="navbar-form" role="search">
+        <div class="form-group">
+          <input class="form-control" placeholder="Search Cathub" type="text">
+        </div>
+      </form>
+      <ul class="nav-links">
+        <li><a href="">Pull Requests</a></li>
+        <li><a href="">Issues</a></li>
+        <li><a href="">Gist</a></li>
+        <li><a href=""></li>
+      </ul>
+        <span class="mega-octicon octicon-bell"></span>
+        <span class="mega-octicon octicon-primitive-dot"></span>
+      </a>
+      <a href="">
+        <span class="mega-octicon octicon-plus"></span>
+        <span class="mega-octicon octicon-triangle-down"></span>
+      </a>
+      <a href=""><img class="navatar" src="http://img.uvumi.com/photos/3223/small/cat-avatar.jpg"/>
+        <span class="mega-octicon octicon-triangle-down"></span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="vcard">
+    <h1 class="vard-names">>
+      <span class="vcard-fullname"></span>
+      <span class="vcard-username"></span>
+    </h1>
+
+    <ul class="vcard-details">
+      <li>
+        <span class="octicon octicon-location"></span><%= @location %></li>
+      <li>
+        <span class="octicon octicon-link"></span><%= @link %></li>
+      <li>
+        <span class="octicon octicon-clock"></span><%= @date_joined %></li>
+    </ul>
+
+    <div class="vcard-stats"></div>
+
+    <div class="vcard-organizations"></div>
   </div>
-</nav>
-<div class="vcard">
-  <h1 class="vard-names">>
-    <span class="vcard-fullname"></span>
-    <span class="vcard-username"></span>
-  </h1>
-
-  <ul class="vcard-details">
-    <li><span class="octicon octicon-location"></span><%= @location %></li>
-    <li><span class="octicon octicon-link"></span><%= @link %></li>
-    <li><span class="octicon octicon-clock"></span><%= @date_joined %></li>
-  </ul>
-
-  <div class="vcard-stats"></div>
-
-  <div class="vcard-organizations"></div>
-</div>

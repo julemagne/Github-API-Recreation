@@ -28,10 +28,42 @@
   content: '\f046';
 }
 
+a {
+  float:left;
+  font-weight:bold;
+}
+
 a:hover {
-  color:'blue';
+  color:'#00f';
 }
 
 a:link {
-  color:'black';
+  color:black;
+}
+
+.navbar-header {
+  float:left;
+}
+
+.cathub-link {
+  float:left;
+  height:28px;
+}
+
+.navbar-form {
+  float:left;
+}
+
+.navatar {
+  height:20px;
+}
+
+.container-fluid {
+  height:28px;
+  padding:10px;
+}
+
+.nav-links {
+  list-style-type:none;
+  float:left
 }
