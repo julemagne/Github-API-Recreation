@@ -2,7 +2,6 @@ class ProfilesController < ApplicationController
   def search
   end
 
-  def profile
-    #params[:name]
+  def result
   end
 end
