@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class User
 
   def initialize(input) #input is params[:name]
@@ -47,20 +46,6 @@ class User
     @response["organizations_url"]
   end
 
-private
-
-def get_response
-  key=ENV['GITHUB_CLIENT_ID']
-  response=HTTParty.get("https://api.github.com/users/#{@username}", headers: {
-    "GITHUB_USERNAME" => "#{key}",
-    "User-Agent" => "GITHUB_USERNAME"
-  })
-  #JSON.parse(response.to_s)
-end
-
-
-
-====
   def pull_repo_info
     repo_array = []
     begin
@@ -86,10 +71,18 @@ end
 
   private
 
-    def self.get_repos(user)
-      HTTParty.get("https://api.github.com/users/#{user}/repos")
-      # file = "./test/json/results.json"
-      # JSON.parse(File.read(file))
+  def get_response
+    key=ENV['GITHUB_CLIENT_ID']
+    response=HTTParty.get("https://api.github.com/users/#{@username}", headers: {
+      "GITHUB_USERNAME" => "#{key}",
+      "User-Agent" => "GITHUB_USERNAME"
+    })
+    #JSON.parse(response.to_s)
+  end
+    def get_repos(user)
+      # HTTParty.get("https://api.github.com/users/#{user}/repos")
+      file = "./test/json/results.json"
+      JSON.parse(File.read(file))
     end
 
     def format_updated_time(updated)
@@ -144,5 +137,4 @@ end
           second: time.strftime("%S").to_i
       }
     end
->>>>>>> 6dc0f1c628e9eacadf0d3105352b84e233bf5ed9
 end
