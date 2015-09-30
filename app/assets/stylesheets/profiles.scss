@@ -8,6 +8,7 @@
   display: block;
   word-wrap: break-word;
   width: 25%;
+  margin-bottom: 3em;
 }
 
 .vard::after {
@@ -46,7 +47,6 @@
 }
 
 .vcard-stat-count{
-  display: block;
   font-size: 28px;
   font-weight: bold;
   line-height: 1;
@@ -83,17 +83,13 @@
 
 .vcard-stat {
   width: 33.33%;
+  float: left;
 }
 
 .vcard-stat:hover {
   text-decoration: none;
 }
 
-.vcard-stats::after{
-  display: table;
-  clear: both;
-  content: ""
-}
 
 .vcard-fullname{
   font-weight: bold;
@@ -112,48 +108,47 @@
 }
 
 .vcard-stats {
-  padding: 2em 0 2em 0;
+  padding: 1em 0 1em 0;
   margin-bottom: 1em;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   text-align: center;
-}
-
-.vcard-stats {
-  padding: 1em 0 1em 0;
-  margin-bottom: 1em;
+  display: inline-block;
 }
 
 .octicon {
   font-family: "octicons.eot";
 }
 
-.octicon-location::before {
-  content: '\f060';
+.octicon-location {
   color: #999;
-  clear: left;
   margin-right: 5px;
   float: left;
 }
+
 
 .octicon-link {
-  width: 100%;
-}
-
-.octicon-link::before {
-  content: '\f05c';
   color: #999;
   margin-right: 5px;
   float: left;
-  clear: right;
 }
 
-.octicon-clock::before {
-  content: '\f046';
+.octicon-clock {
   color: #999;
-  clear: left;
   margin-right: 5px;
   float: left;
+}
+
+.octicon-diff-added {
+  margin-right: 5px;
+}
+
+.octicon-repo-delete {
+  margin-right: 5px;
+}
+
+.octicon-rss {
+  margin-right: 5px;
 }
 
 .navbar-header {
@@ -202,7 +197,7 @@
 .vcard-organizations > h3 {
   font-size: 1.25em;
   font-weight: bold;
-
+}
 
 
 // Julie's styles B)
@@ -257,3 +252,55 @@
 #shrink a{
   color: #767676;
 }
+
+.clear {
+  clear: both;
+}
+
+.repo-list {
+  position: relative;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0
+}
+
+.repo-list > li {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  list-style: none;
+}
+
+.repo-stats {
+  float: right;
+  margin-top: 6px;
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+  color: #888;
+}
+
+.repo-stats > a {
+  margin-left: 8px;
+  color: #888;
+}
+
+.repo-stats > a:hover {
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+
+.repo-list-item {
+  list-style: none;
+
+}
+
+.repo-list-meta {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 13px;
+  color: #888;
+}
+
