@@ -24,17 +24,20 @@
       description: "repository description 1",
       meta: "Updated some hours ago",
       forks: 123,
-      stars: 10},
+      stars: 10,
+      language: "Ruby"},
     { name: "repository name 2",
       description: "repository description 2",
       meta: "Updated some hours ago",
       forks: 9,
-      stars: 3213},
+      stars: 3213,
+      language: "HTML"},
     { name: "repository name 3",
       description: "repository description 3",
       meta: "Updated some hours ago",
       forks: 123,
-      stars: 10}
+      stars: 10,
+      language: "CSS"}
   ]
 
 %>
@@ -140,6 +143,7 @@
             <h3 class="repo-list-name"><a href="http://github.com/<%= user_username %>/<%= r[:name] %>"><%= r[:name] %></a></h3>
             <p class="repo-list-description"><%= r[:description] %></p>
             <p class="repo-list-meta"><%= r[:meta] %></p>
+            <p class="repo-list-meta"><%= r[:language] %></p>
             <div class="participation-graph"></div>
           </li>
         <% end %>
