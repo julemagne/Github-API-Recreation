@@ -113,6 +113,7 @@ class User
   end
 
   def organization_info
+    return [] if @organization_response.nil?
     array = []
     @organization_response.each do |org|
       hash = {
@@ -126,22 +127,22 @@ class User
 
   def get_response
     response = HTTParty.get("https://api.github.com/users/#{@username}", :basic_auth => auth )
-    return {} if response["message"].include?("API rate limit exceeded")
-    return response.response unless response.response.nil?
+    return {} if response["message"]
+    return response
   end
 
   def organization_response
     response = HTTParty.get("https://api.github.com/users/#{@username}/orgs", :basic_auth => auth)
-    return [] if response["message"].include?("API rate limit exceeded")
-    return response unless response.nil?
+    return [] if response["message"]
+    return response
   end
 
   def get_repos(user)
     response = HTTParty.get("https://api.github.com/users/#{user}/repos", :basic_auth => auth)
     # file = "./test/json/results.json"
     # JSON.parse(File.read(file))
-    return [] if response["message"].include?("API rate limit exceeded")
-    return response unless response.nil?
+    return [] if response["message"]
+    return response
   end
 
   def format_updated_time(updated)

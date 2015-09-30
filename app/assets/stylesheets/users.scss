@@ -54,6 +54,7 @@
   font-size: 28px;
   font-weight: bold;
   line-height: 1;
+  display: block;
 }
 
 .text-muted{
@@ -118,10 +119,11 @@
   border-bottom: 1px solid #eee;
   text-align: center;
   display: inline-block;
+  width: 100%;
 }
 
 .octicon {
-  font-family: "octicons.eot";
+  font-family: image-url("stylesheet/octicons.eot");
 }
 
 .octicon-location {
