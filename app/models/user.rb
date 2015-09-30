@@ -111,12 +111,15 @@ class User
       "GITHUB_USERNAME" => "#{key}",
       "User-Agent" => "GITHUB_USERNAME"
     })
-    #JSON.parse(response.to_s)
   end
     def get_repos(user)
-      # HTTParty.get("https://api.github.com/users/#{user}/repos")
-      file = "./test/json/results.json"
-      JSON.parse(File.read(file))
+      key=ENV['GITHUB_CLIENT_ID']
+      HTTParty.get("https://api.github.com/users/#{user}/repos"), headers: {
+        "GITHUB_USERNAME" => "#{key}",
+        "User-Agent" => "GITHUB_USERNAME"
+      }
+      # file = "./test/json/results.json"
+      # JSON.parse(File.read(file))
     end
 
     def format_updated_time(updated)
