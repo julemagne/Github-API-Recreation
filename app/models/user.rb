@@ -26,16 +26,16 @@ class User
       end
       repo_array.sort_by{|hash| hash[:sort_field]}.reverse
     rescue
-      []
+      ["An error has occured. Please try again later."]
     end
   end
 
   private
 
     def self.get_repos(user)
-      HTTParty.get("https://api.github.com/users/#{user}/repos")
-      # file = "./test/json/results.json"
-      # JSON.parse(File.read(file))
+      # HTTParty.get("https://api.github.com/users/#{user}/repos")
+      file = "./test/json/results.json"
+      JSON.parse(File.read(file))
     end
 
     def format_updated_time(updated)
