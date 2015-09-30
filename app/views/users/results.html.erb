@@ -1,7 +1,7 @@
 <%
   user_avatar_img = "https://pbs.twimg.com/profile_images/557296415261470722/_v5a2HI1.jpeg"
   user_fullname = "Mason Matthews"
-  user_username = "masonfmatthews"
+  user_login = "masonfmatthews"
   user_location = "Raleigh, NC"
   user_date_joined = "Sept 20, 2010"
   user_link = "http://bernheisel.com"
@@ -80,34 +80,34 @@
 
     <div class="vcard col-sm-3">
 
-      <a style="display: block; position: relative;" href="https://github.com/settings/profile" class="vcard-avatar"><img src="<%= user_avatar_img %>" class="avatar" /></a>
+      <a style="display: block; position: relative;" href="https://github.com/settings/profile" class="vcard-avatar"><img src="<%= @person.profile_picture %>" class="avatar" /></a>
 
       <h1 class="vard-names">
         <span class="vcard-fullname"><%= @person.name %></span>
-        <span class="vcard-username"><%= user_username %></span>
+        <span class="vcard-username"><%= @person.user_name %></span>
       </h1>
 
 
       <div class="vcard-details">
-        <div><span class="octicon octicon-location"></span><%= user_location %></div>
-        <div><span class="octicon octicon-link"></span><a href="<%= user_link %>"><%= user_link %></a></div>
-        <div><span class="octicon octicon-clock"></span><%= user_date_joined %></div>
+        <div><span class="octicon octicon-location"></span><%= @person.location %></div>
+        <div><span class="octicon octicon-link"></span><a href="<%=  %>"><%= user_link %></a></div>
+        <div><span class="octicon octicon-clock"></span><%=  %></div>
       </div>
 
 
       <div class="vcard-stats">
-        <a class="vcard-stat" href="http://github.com/<%= user_username %>/followers">
-          <strong class="vcard-stat-count"><%= user_followers %></strong>
+        <a class="vcard-stat" href="http://github.com/<%= @person.user_name %>/followers">
+          <strong class="vcard-stat-count"><%= @person.followers %></strong>
           <span class="text-muted">Followers</span>
         </a>
 
         <a class="vcard-stat" href="http://github.com/stars">
-          <strong class="vcard-stat-count"><%= user_starred %></strong>
+          <strong class="vcard-stat-count"><%= @person.starred %></strong>
           <span class="text-muted">Starred</span>
         </a>
 
-        <a class="vcard-stat" href="http://github.com/<%= user_username %>/following">
-          <strong class="vcard-stat-count"><%= user_following %></strong>
+        <a class="vcard-stat" href="http://github.com/<%= @person.user_name %>/following">
+          <strong class="vcard-stat-count"><%= @person.following %></strong>
           <span class="text-muted">Following</span>
         </a>
       </div>
@@ -116,8 +116,8 @@
 
       <div class="vcard-organizations">
         <h3 style="1.25em">Organizations</h3>
-        <% user_groups.each do |g| %>
-          <a class="org_avatar" href="https://github.com/<%= g[:name] %>" alt="<%= g[:name] %>"><img src="<%= g[:avatar] %>" /></a>
+        <% @person.organization_info.each do |o| %>
+          <a class="org_avatar" href="https://github.com/<%= o[:name] %>" alt="<%= o[:name] %>"><img src="<%= o[:avatar] %>" /></a>
         <% end %>
       </div>
     </div>
@@ -133,15 +133,15 @@
       <div id="repo-tab">
         <div class="filter-bar"
         </div>
-        <% user_repositories.each do |r| %>
+        <% @person.repos_hash.each do |r| %>
           <li class="repo-list-item">
             <div class="repo-stats">
-              <a class="repo-list-stat-item" href=""><span class="octicon octicon-star"></span><%= r[:stars] %></a>
-              <a class="repo-list-stat-item" href="#"><span class="octicon octicon-git-branch"></span><%= r[:forks] %></a>
+              <a class="repo-list-stat-item" href=""><span class="octicon octicon-star"></span><%= r[:stargazers_count] %></a>
+              <a class="repo-list-stat-item" href="#"><span class="octicon octicon-git-branch"></span><%= r[:forks_count] %></a>
             </div>
-            <h3 class="repo-list-name"><a href="http://github.com/<%= user_username %>/<%= r[:name] %>"><%= r[:name] %></a></h3>
+            <h3 class="repo-list-name"><a href="http://github.com/<%= @person.user_name %>/<%= r[:name] %>"><%= r[:name] %></a></h3>
             <p class="repo-list-description"><%= r[:description] %></p>
-            <p class="repo-list-meta"><%= r[:meta] %></p>
+            <p class="repo-list-meta"><%= r[:updated_at] %></p>
             <p class="repo-list-meta"><%= r[:language] %></p>
             <div class="participation-graph"></div>
           </li>

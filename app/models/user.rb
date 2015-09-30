@@ -1,5 +1,6 @@
 require 'byebug'
 class User
+  attr_reader :repos_hash
 
   def initialize(input) #input is params[:name]
     @username = input
@@ -7,7 +8,7 @@ class User
     @repos = get_repos(input)
     @repos_hash = pull_repo_info
     @organization_response = organization_response
-    @auth = {username: ENV['GITHUB_USERNAME'], password: ENV['GITHUB_TOKEN']}
+    @auth = { username: ENV['GITHUB_USERNAME'], password: ENV['GITHUB_TOKEN'] }
   end
 
   def profile_picture
@@ -31,11 +32,11 @@ class User
   end
 
   def joined_date
-   raw_date=@response["created_at"]
+   raw_date =@response["created_at"]
 
-   month=raw_date[5..6]
+   month = raw_date[5..6]
 
-   months_array = ["January", "February", "March", "April", "May", "June", "July", "August", "Septemer", "October", "November", "December"]
+   months_array = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
    case month
    when "01"
@@ -111,8 +112,8 @@ class User
     array = []
     @organization_response.each do |org|
       hash = {
-        "avatar" => org[:avatar_url],
-        "name" => org[:login]
+        avatar: org[:avatar_url],
+        name: org[:login]
       }
       array<<hash
     end
@@ -120,17 +121,23 @@ class User
   end
 
   def get_response
-    response=HTTParty.get("https://api.github.com/users/#{@username}", basic_auth: @auth )
+    response = HTTParty.get("https://api.github.com/users/#{@username}", :basic_auth => auth )
+    return {} if response["message"].include?("API rate limit exceeded")
+    return response.response unless response.response.nil?
   end
 
   def organization_response
-    response=HTTParty.get("https://api.github.com/users/#{@username}/orgs", basic_auth: @auth)
+    response = HTTParty.get("https://api.github.com/users/#{@username}/orgs", :basic_auth => auth)
+    return [] if response["message"].include?("API rate limit exceeded")
+    return response unless response.nil?
   end
 
   def get_repos(user)
-    HTTParty.get("https://api.github.com/users/#{user}/repos", basic_auth: @auth)
+    response = HTTParty.get("https://api.github.com/users/#{user}/repos", :basic_auth => auth)
     # file = "./test/json/results.json"
     # JSON.parse(File.read(file))
+    return [] if response["message"].include?("API rate limit exceeded")
+    return response unless response.nil?
   end
 
   def format_updated_time(updated)
@@ -191,4 +198,7 @@ end
           second: time.strftime("%S").to_i
       }
     end
+  private def auth
+    @auth
+  end
 end
