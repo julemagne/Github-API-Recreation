@@ -1,9 +1,15 @@
 
-<h1>Search for a User</h1>
-<%= form_tag users_results_path do %>
-  <p>
-    <%= label_tag 'username', 'Enter a username:' %>
-    <%= text_field_tag 'username' %>
-  </p>
-  <%= submit_tag "Find user!" %>
-<% end %>
+<div class="container fullscreen">
+    <div class="panel panel-default loginbox">
+      <div class="panel-body text-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
+        <div class="form-group">
+          <%= form_tag users_results_path do %>
+            <p><%= text_field_tag :name, nil, placeholder: "GitHub username", class: "form-control" %></p>
+
+            <p><%= submit_tag "Get Profile", class:"btn btn-primary" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

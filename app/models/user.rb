@@ -5,7 +5,9 @@ class User
     @username = input
     @response = get_response
     @repos = get_repos(input)
+    @repos_hash = pull_repo_info
     @organization_response = organization_response
+    @auth = {username: ENV['GITHUB_USERNAME'], password: ENV['GITHUB_TOKEN']}
   end
 
   def profile_picture
@@ -118,27 +120,15 @@ class User
   end
 
   def get_response
-    key=ENV['GITHUB_CLIENT_ID']
-    response=HTTParty.get("https://api.github.com/users/#{@username}", headers: {
-      "GITHUB_USERNAME" => "#{key}",
-      "User-Agent" => "GITHUB_USERNAME"
-    })
+    response=HTTParty.get("https://api.github.com/users/#{@username}", basic_auth: @auth )
   end
 
   def organization_response
-    key=ENV['GITHUB_CLIENT_ID']
-    response=HTTParty.get("https://api.github.com/users/#{@username}/orgs", headers: {
-      "GITHUB_USERNAME" => "#{key}",
-      "User-Agent" => "GITHUB_USERNAME"
-    })
+    response=HTTParty.get("https://api.github.com/users/#{@username}/orgs", basic_auth: @auth)
   end
 
   def get_repos(user)
-    key=ENV['GITHUB_CLIENT_ID']
-    HTTParty.get("https://api.github.com/users/#{user}/repos", headers: {
-      "GITHUB_USERNAME" => "#{key}",
-      "User-Agent" => "GITHUB_USERNAME"
-    })
+    HTTParty.get("https://api.github.com/users/#{user}/repos", basic_auth: @auth)
     # file = "./test/json/results.json"
     # JSON.parse(File.read(file))
   end
