@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
   get 'users/search'
 
   post 'users/results'
 
   root 'users#search'
-=======
-  get 'profiles#search'
+
+  get 'profiles/search'
   get 'profiles/search'
   get 'profiles/result'
-
->>>>>>> 008e62442666c0e0d91b96b9f3b57b20748ca519
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
