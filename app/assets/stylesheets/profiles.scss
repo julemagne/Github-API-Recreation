@@ -1,8 +1,33 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 body {
   font-size:13px;
+}
+
+.vcard {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #333;
+  display: block;
+  word-wrap: break-word;
+  width: 25%;
+}
+
+.vard::after {
+  display: table;
+  clear: both;
+  content: ""
+}
+
+.vcard a:link{
+  color: #4078c0;
+}
+.vcard a:visited{
+  color: #4078c0;
+}
+.vcard a:hover{
+  color: #4078c0;
 }
 
 .vard-names {
@@ -15,21 +40,87 @@ body {
 
 }
 
+.vcard-username {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  color: #666;
+  text-overflow: ellipsis;
+}
+
+.vcard-stat-count{
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.text-muted{
+  color: #767676;
+  font-weight: normal;
+  font-size: 11px;
+}
+
 .vcard-avatar {
+
+}
+
+.avatar {
   width: 230px;
   height: 230px;
   border-radius: 6px;
 }
 
 .vcard-details {
-  padding: 1em 0 1em 0;
+  padding: 0 0 1em 0;
   border-width: 1px 0 1px 0;
   border-color: #eee;
+  list-style: none;
+  line-height: 2em;
+}
+
+.vard-details > li {
+  height: 1.75em;
+  width: 100%;
+}
+
+.vcard-stat {
+  width: 33.33%;
+}
+
+.vcard-stat:hover {
+  text-decoration: none;
+}
+
+.vcard-stats::after{
+  display: table;
+  clear: both;
+  content: ""
+}
+
+.vcard-fullname{
+  font-weight: bold;
+}
+
+.vcard-details::after{
+  display: table;
+  clear: both;
+  content: ""
+}
+
+.vcard-names::after{
+  display: table;
+  clear: both;
+  content: ""
 }
 
 .vcard-stats {
-  padding: 1em 0 1em 0;
+  padding: 2em 0 2em 0;
   margin-bottom: 1em;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
 .vcard-stats {
@@ -43,10 +134,22 @@ body {
 
 .octicon-location::before {
   content: '\f060';
+  color: #999;
+  clear: left;
+  margin-right: 5px;
+  float: left;
+}
+
+.octicon-link {
+  width: 100%;
 }
 
 .octicon-link::before {
   content: '\f05c';
+  color: #999;
+  margin-right: 5px;
+  float: left;
+  clear: right;
 }
 
 .octicon-clock::before {
@@ -59,6 +162,7 @@ body {
   height:49px;
   background:#eee;
   padding:10px 0px 10px 0px;
+  margin-bottom:20px;
 }
 
 #search-input {
@@ -66,9 +170,10 @@ body {
 }
 
 #gnaw-cont {
-  width:1000px;
+  width:950px;
   margin-left:auto;
   margin-right:auto;
+  color:#999;
 }
 
 nav .mega-octicon.octicon-mark-github {
@@ -102,7 +207,6 @@ nav .mega-octicon.octicon-mark-github {
 }
 
 .nav-links li {
-  display:inline;
   list-style-type:none;
   float:left;
   font-weight:bold;
@@ -139,7 +243,6 @@ a.nav-link:active {
 
 a.nav-link.right {
   text-decoration:none;
-  font-size:20px;
   float:right;
 }
 
@@ -159,9 +262,82 @@ a.nav-link.right:active {
   color:black;
 }
 
+.nav-link.right span {
+  font-size:16px;
+  vertical-align:middle;
+}
+
 .main {
   margin-right: auto;
   margin-left: auto;
   display: block;
   width: 980px;
+}
+
+.org_avatar{
+  height: 48px;
+  width: 48px;
+}
+
+.vcard-organizations {
+
+}
+
+.vcard-organizations > h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+
+// Julie's styles B)
+
+
+.footer{
+  padding-top: 40px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  background-color: white;
+  border-top: solid #EEEEEE;
+  border-width: 1px;
+  height: 80px;
+  width: 980px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #767676;
+}
+
+.footerspacing{
+  word-spacing: 10px;
+}
+
+.leftfooter{
+  position: absolute;
+  left: 0;
+  float: left;
+}
+
+.rightfooter{
+  position: absolute;
+  right: 0;
+  float: right;
+}
+
+#shrink{
+    position: absolute;
+    margin-top: -60px;
+    margin-left: 600px;
+    padding: 60px;
+    opacity: 0.4;
+    zoom: 0.75;
+    -moz-transform: scale(0.7);
+    z-index: 1;
+}
+
+#shrink a:hover{
+  color: black;
+}
+
+#shrink a{
+  color: #767676;
 }
