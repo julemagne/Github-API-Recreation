@@ -4,10 +4,10 @@
 <h1 align="center">GitHub Profile Page</h1>
 
 ## Description
-In this assignment, we built a Rails application that consumes information from GitHub's API and then presents it back to the user on their own views. Here, the user can see the view in the application and it will show them a page that looks just like their own GitHub repositories page.
+For this assignment, we built a Rails application that consumes information from GitHub's API and then presents it back to the user on their own views. Here, the user can see the view in the application and it will show them a page that looks just like their own GitHub repositories page.
 
 ## Teamwork Makes the Dream Work
-Just like this example of Octocats, we also worked together. As a class, we divided GitHub APIs and worked on pulling different data. In the end, merged our branches.
+Just like this example of Octocats, we also worked together. As a class, we divided GitHub APIs and worked on pulling different data. In the end, we merged our branches.
 <p align="center">
 <img src="http://i.imgur.com/31Ase1Y.jpg" width=500>
 </p>
