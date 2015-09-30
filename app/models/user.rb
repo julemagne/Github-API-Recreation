@@ -23,6 +23,10 @@ class User
     @response["login"]
   end
 
+  def address
+    @response["html_url"]
+  end
+
   def work
     @response["company"]
   end

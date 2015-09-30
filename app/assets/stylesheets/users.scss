@@ -308,3 +308,111 @@
   color: #888;
 }
 
+#gnawbar {
+  height:49px;
+  background:#eee;
+  padding:10px 0px 10px 0px;
+  margin-bottom:20px;
+}
+
+#search-input {
+  font-size:28px;
+}
+
+#gnaw-cont {
+  width:950px;
+  margin-left:auto;
+  margin-right:auto;
+  color:#999;
+}
+
+nav .mega-octicon.octicon-mark-github {
+  font-size:28px;
+  margin-left:10px;
+  margin-right:10px;
+  float:left;
+}
+
+.gnawput {
+  border-radius:3px;
+  float:left;
+  font-size:13px;
+  padding:0px;
+  padding-left:10px;
+  margin:0px;
+  width:360px;
+  min-height:26px;
+  border: 1px solid #ccc;
+}
+
+.gnawput:focus {
+  box-shadow: 0 0 10px violet;
+  border-color:violet;
+}
+
+.nav-links {
+  float:left;
+  display:inline;
+  padding:0px;
+}
+
+.nav-links li {
+  list-style-type:none;
+  float:left;
+  font-weight:bold;
+  padding:4px 8px 4px 8px;
+}
+
+ul {
+  padding:0px;
+}
+
+a.nav-link {
+  text-decoration:none;
+}
+
+a.nav-link:link {
+  color:black;
+}
+
+a.nav-link:visited {
+  color:black;
+}
+
+a.nav-link:hover {
+  color:#4078c0;
+}
+
+a.nav-link:active {
+  color:black;
+}
+
+.navatar {
+  height:20px;
+}
+
+a.nav-link.right {
+  text-decoration:none;
+  float:right;
+}
+
+a.nav-link.right:link {
+  color:black;
+}
+
+a.nav-link.right:visited {
+  color:black;
+}
+
+a.nav-link.right:hover {
+  color:#4078c0;
+}
+
+a.nav-link.right:active {
+  color:black;
+}
+
+.nav-link.right span {
+  font-size:16px;
+  vertical-align:middle;
+}
