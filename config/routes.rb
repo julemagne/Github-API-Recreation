@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   root 'users#search'
 
+  get 'profiles/search'
+  get 'profiles/search'
+  get 'profiles/result'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

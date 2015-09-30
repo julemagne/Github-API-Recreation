@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 
   def results
     @user = params[:username]
-    response = User.get_repos(@user)
-    person = User.new(@user, response)
+    person = User.new(@user)
     get_info = person.pull_repo_info
     render json: get_info
   end
