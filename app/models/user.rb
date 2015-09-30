@@ -24,6 +24,7 @@ class User
 
   def address
     @response["html_url"]
+  end
 
   def work
     @response["company"]
