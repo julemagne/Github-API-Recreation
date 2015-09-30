@@ -3,6 +3,7 @@ class User
   def initialize(username)
     @username = username
     @response = get_response
+    @organization_response = organization_response
   end
 
   def profile_picture
@@ -79,13 +80,39 @@ class User
     @response["organizations_url"]
   end
 
+  def organization_info
+    array = []
+    @organization_response.each do |org|
+      hash = {
+        "avatar" => org[:avatar_url],
+        "name" => org[:login]
+      }
+      array<<hash
+    end
+    array
+  end
+
+
+
+  private
+
+  def organization_response
+    key=ENV['GITHUB_CLIENT_ID']
+    response=HTTParty.get("https://api.github.com/users/#{@username}/orgs", headers: {
+      "GITHUB_USERNAME" => "#{key}",
+      "User-Agent" => "GITHUB_USERNAME"
+    })
+  end
   # private def get_response
   #   file = File.join(Rails.root, 'test','models','json_github','user.json')
   #   JSON.parse(File.read(file))
   # end
-  private def get_response
+  def get_response
     key = ENV['GITHUB_TOKEN']
-    HTTParty.get("https://api.github.com/?access_token=#{"GITHUB_TOKEN"}")
+    response=HTTParty.get("https://api.github.com/users/#{@username}", headers: {
+      "GITHUB_USERNAME" => "#{key}",
+      "User-Agent" => "GITHUB_USERNAME"
+    })
   end
 
 end

@@ -68,7 +68,7 @@ end
 
 
 ### Contributors
-The project was an excellent learning experience with practice in merging repositories and pairprogramming. As a team we performed sprints every two hours, followed by standups, and divvied out tasks accordingly. Below is a list of of the contributor:
+The project was an excellent learning experience with practice in merging repositories and pair-programming. As a team we performed sprints every two hours, followed by stand-ups, and divvied out tasks accordingly. Below is a list of of the contributor:
 - David Bernheisel
 - Julie David
 - Doug Bryant
@@ -79,4 +79,3 @@ The project was an excellent learning experience with practice in merging reposi
 - Ryan Graham
 - Da-Me Kim
 - Anthony Ellis
-Overall
