@@ -5,10 +5,11 @@ class User
     @username = input
     @response = get_response
     @repos = get_repos(input)
+    @organization_response = organization_response
   end
 
   def profile_picture
-      @response["avatar_url"]
+    @response["avatar_url"]
   end
 
   def name
@@ -104,7 +105,17 @@ class User
     end
   end
 
-  private
+  def organization_info
+    array = []
+    @organization_response.each do |org|
+      hash = {
+        "avatar" => org[:avatar_url],
+        "name" => org[:login]
+      }
+      array<<hash
+    end
+    array
+  end
 
   def get_response
     key=ENV['GITHUB_CLIENT_ID']
@@ -113,63 +124,72 @@ class User
       "User-Agent" => "GITHUB_USERNAME"
     })
   end
-    def get_repos(user)
-      key=ENV['GITHUB_CLIENT_ID']
-      HTTParty.get("https://api.github.com/users/#{user}/repos", headers: {
-        "GITHUB_USERNAME" => "#{key}",
-        "User-Agent" => "GITHUB_USERNAME"
-      })
-      # file = "./test/json/results.json"
-      # JSON.parse(File.read(file))
-    end
 
-    def format_updated_time(updated)
-      update_time = Time.parse(updated)
-      update_time -= 4.hours
-      updated = time_hash(update_time)
-      current = time_hash(Time.now)
+  def organization_response
+    key=ENV['GITHUB_CLIENT_ID']
+    response=HTTParty.get("https://api.github.com/users/#{@username}/orgs", headers: {
+      "GITHUB_USERNAME" => "#{key}",
+      "User-Agent" => "GITHUB_USERNAME"
+    })
+  end
 
-      # time_difference = Time.now - update_time
-      # mm, ss = time_diffence.divmod(60)
-      # hh, mm = mm.divmod(60)
-      # dd, hh = hh.divmod(24)
-      #
-      #Begin MONSTROUS if statement
-      if updated[:year] == current[:year]
-        if updated[:month] == current[:month]
-          if updated[:day] == current[:day]
-            if updated[:hour] == current[:hour]
-              if updated[:minute] == current[:minute]
-                #Minutes are equal
-                difference = current[:second] - updated[:second]
-                return "Updated #{difference} seconds ago" unless difference == 1
-                return "Updated just now"
-              else
-                #Hours are equal
-                difference = current[:minute] - updated[:minute]
-                return "Updated #{difference} minutes ago" unless difference == 1
-                return "Updated a minute ago"
-              end
+  def get_repos(user)
+    key=ENV['GITHUB_CLIENT_ID']
+    HTTParty.get("https://api.github.com/users/#{user}/repos", headers: {
+      "GITHUB_USERNAME" => "#{key}",
+      "User-Agent" => "GITHUB_USERNAME"
+    })
+    # file = "./test/json/results.json"
+    # JSON.parse(File.read(file))
+  end
+
+  def format_updated_time(updated)
+    update_time = Time.parse(updated)
+    update_time -= 4.hours
+    updated = time_hash(update_time)
+    current = time_hash(Time.now)
+
+    # time_difference = Time.now - update_time
+    # mm, ss = time_diffence.divmod(60)
+    # hh, mm = mm.divmod(60)
+    # dd, hh = hh.divmod(24)
+    #
+    #Begin MONSTROUS if statement
+    if updated[:year] == current[:year]
+      if updated[:month] == current[:month]
+        if updated[:day] == current[:day]
+          if updated[:hour] == current[:hour]
+            if updated[:minute] == current[:minute]
+              #Minutes are equal
+              difference = current[:second] - updated[:second]
+              return "Updated #{difference} seconds ago" unless difference == 1
+              return "Updated just now"
             else
-              #Days are equal
-              difference = current[:hour] - updated[:hour]
-              return "Updated #{difference} hours ago" unless difference == 1
-              return "Updated an hour ago"
+              #Hours are equal
+              difference = current[:minute] - updated[:minute]
+              return "Updated #{difference} minutes ago" unless difference == 1
+              return "Updated a minute ago"
             end
           else
-            #Months are equal
-            difference = current[:day] - updated[:day]
-            return "Updated #{difference} days ago" unless difference == 1
-            return "Updated a day ago"
+            #Days are equal
+            difference = current[:hour] - updated[:hour]
+            return "Updated #{difference} hours ago" unless difference == 1
+            return "Updated an hour ago"
           end
         else
-          #Years are equal
-          "Updated on #{update_time.strftime("%b")} #{updated[:day]}"
+          #Months are equal
+          difference = current[:day] - updated[:day]
+          return "Updated #{difference} days ago" unless difference == 1
+          return "Updated a day ago"
         end
-    else
-      "Updated on #{update_time.strftime("%b")} #{updated[:day]}, #{updated[:year]}"
-    end
+      else
+        #Years are equal
+        "Updated on #{update_time.strftime("%b")} #{updated[:day]}"
+      end
+  else
+    "Updated on #{update_time.strftime("%b")} #{updated[:day]}, #{updated[:year]}"
   end
+end
 
     def time_hash(time)
       {
