@@ -100,7 +100,7 @@
 
       <div class="vcard-details">
         <div><span class="octicon octicon-location"></span><%= @person.location %></div>
-        <div><span class="octicon octicon-link"></span><a href="<%=  %>"><%= user_link %></a></div>
+        <div><span class="octicon octicon-link"></span><a href="<%=  %>"></a></div>
         <div><span class="octicon octicon-clock"></span><%=  %></div>
       </div>
 
@@ -112,7 +112,7 @@
         </a>
 
         <a class="vcard-stat" href="http://github.com/stars">
-          <strong class="vcard-stat-count"><%= @person.starred %></strong>
+          <strong class="vcard-stat-count">1</strong>
           <span class="text-muted">Starred</span>
         </a>
 
@@ -146,13 +146,14 @@
         <% @person.repos_hash.each do |r| %>
           <li class="repo-list-item">
             <div class="repo-stats">
+              <a class="repo-list-stat-item"><%= r[:language] %></a>
               <a class="repo-list-stat-item" href=""><span class="octicon octicon-star"></span><%= r[:stargazers_count] %></a>
               <a class="repo-list-stat-item" href="#"><span class="octicon octicon-git-branch"></span><%= r[:forks_count] %></a>
             </div>
             <h3 class="repo-list-name"><a href="http://github.com/<%= @person.user_name %>/<%= r[:name] %>"><%= r[:name] %></a></h3>
             <p class="repo-list-description"><%= r[:description] %></p>
             <p class="repo-list-meta"><%= r[:updated_at] %></p>
-            <p class="repo-list-meta"><%= r[:language] %></p>
+
             <div class="participation-graph"></div>
           </li>
         <% end %>
