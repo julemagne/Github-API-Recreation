@@ -4,16 +4,16 @@
 <h1 align="center">GitHub Profile Page</h1>
 
 ## Description
-In this assignment we have built a Rails application that consumes information from GitHub's API and then presents it back to the user on their own views. Here the user can see the view in the application and it will show them a page that looks just like their own GitHub repositories page.
+In this assignment, we built a Rails application that consumes information from GitHub's API and then presents it back to the user on their own views. Here, the user can see the view in the application and it will show them a page that looks just like their own GitHub repositories page.
 
 ## Teamwork Makes the Dream Work
-Just like this example of Octocats, we also worked together. As a class we divided GitHub APIs and worked on pulling different data and in the end merged out branches.
+Just like this example of Octocats, we also worked together. As a class, we divided GitHub APIs and worked on pulling different data. In the end, merged our branches.
 <p align="center">
 <img src="http://i.imgur.com/31Ase1Y.jpg" width=500>
 </p>
 
 ## GitHub API code
-One of the teams was assigne the GitHub User API and below is an example of the code that was written to pull data from that particular hash:
+One of the teams was assigned the GitHub User API. Below is an example of the code that was written to pull data from that particular hash:
 ```ruby
 class User
 
@@ -32,7 +32,7 @@ class User
 ```    
 
 
-Below is an example of some of the HTML code that was written in the views file:
+Below is an example of some of the HTML code that was written in the profile views file:
 ```html
  <form class="navbar-form" role="search">
         <div class="form-group">
@@ -48,7 +48,7 @@ Below is an example of some of the HTML code that was written in the views file:
 ```
 
 ## Test Driven Development
-A critical part of the learning process is to continue our practice with Test Driven Development(TDD). Below is an example of some of TTD:
+A critical part of the learning process is to continue our practice with Test Driven Development(TDD). Below is an example of some of our tests:
 ```ruby
 def test_user_name
   julie=User.new("julemagne")
@@ -68,7 +68,7 @@ end
 
 
 ### Contributors
-The project was an excellent learning experience with practice in merging repositories and pair-programming. As a team we performed sprints every two hours, followed by stand-ups, and divvied out tasks accordingly. Below is a list of of the contributors:
+The project was an excellent learning experience in which we practiced merging repositories and pair-programming. As a team, we performed sprints every two hours, followed by stand-ups, and divvied out tasks accordingly. Below is a list of of the contributors:
 - David Bernheisel
 - Julie David
 - Doug Bryant
