@@ -44,36 +44,46 @@
 
 
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="cathub-link" href="https://www.github.com">
-        <span class="mega-octicon octicon-mark-github"></span>
-      </a>
+<nav id="gnawbar">
+  <div id="gnaw-cont">
 
-      <form class="navbar-form" role="search">
-        <div class="form-group">
-          <input class="form-control" placeholder="Search Cathub" type="text">
-        </div>
-      </form>
-      <ul class="nav-links">
-        <li><a href="">Pull Requests</a></li>
-        <li><a href="">Issues</a></li>
-        <li><a href="">Gist</a></li>
-        <li><a href=""></li>
-      </ul>
-        <span class="mega-octicon octicon-bell"></span>
-        <span class="mega-octicon octicon-primitive-dot"></span>
-      </a>
-      <a href="">
-        <span class="mega-octicon octicon-plus"></span>
-        <span class="mega-octicon octicon-triangle-down"></span>
-      </a>
-      <a href=""><img class="navatar" src="http://img.uvumi.com/photos/3223/small/cat-avatar.jpg"/>
-        <span class="mega-octicon octicon-triangle-down"></span>
-      </a>
-    </div>
-  </nav>
+    <a class="nav-link" href="https://www.github.com">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+
+    <form class="">
+        <input class="gnawput" placeholder="Search Cathub" type="text">
+    </form>
+
+    <ul class="nav-links">
+      <li>
+        <a class="nav-link" href="http://www.google.com">Pull Requests</a>
+      </li>
+      <li>
+        <a class="nav-link" href="http://www.google.com">Issues</a>
+      </li>
+      <li>
+        <a class="nav-link" href="http://www.google.com">Gist</a>
+      </li>
+    </ul>
+
+    <a class="nav-link right" href="">
+      <img class="navatar" src="http://img.uvumi.com/photos/3223/small/cat-avatar.jpg"></img>
+      <span class="mega-octicon octicon-triangle-down"></span>
+    </a>
+
+    <a class="nav-link right" href="">
+      <span class="mega-octicon octicon-plus"></span>
+      <span class="mega-octicon octicon-triangle-down"></span>
+    </a>
+
+    <a class="nav-link right" href="http://www.google.com">
+      <span class="mega-octicon octicon-bell"></span>
+      <span class="mega-octicon octicon-primitive-dot"></span>
+    </a>
+
+  </div>
+</nav>
 
 <div class="main">
 
@@ -102,7 +112,7 @@
         </a>
 
         <a class="vcard-stat" href="http://github.com/stars">
-          <strong class="vcard-stat-count"><%= user_starred %></strong>
+          <strong class="vcard-stat-count"><%= user_starred %></strong><br/>
           <span class="text-muted">Starred</span>
         </a>
 

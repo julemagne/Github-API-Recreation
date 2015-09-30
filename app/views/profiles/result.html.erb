@@ -42,40 +42,50 @@
 
 %>
 
+<nav id="gnawbar">
+  <div id="gnaw-cont">
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="cathub-link" href="https://www.github.com">
-        <span class="mega-octicon octicon-mark-github"></span>
-      </a>
+    <a class="nav-link" href="https://www.github.com">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
 
-      <form class="navbar-form" role="search">
-        <div class="form-group">
-          <input class="form-control" placeholder="Search Cathub" type="text">
-        </div>
-      </form>
-      <ul class="nav-links">
-        <li><a href="">Pull Requests</a></li>
-        <li><a href="">Issues</a></li>
-        <li><a href="">Gist</a></li>
-        <li><a href=""></li>
-      </ul>
-        <span class="mega-octicon octicon-bell"></span>
-        <span class="mega-octicon octicon-primitive-dot"></span>
-      </a>
-      <a href="">
-        <span class="mega-octicon octicon-plus"></span>
-        <span class="mega-octicon octicon-triangle-down"></span>
-      </a>
-      <a href=""><img class="navatar" src="http://img.uvumi.com/photos/3223/small/cat-avatar.jpg"/>
-        <span class="mega-octicon octicon-triangle-down"></span>
-      </a>
-    </div>
-  </nav>
+    <form class="">
+        <input class="gnawput" placeholder="Search Cathub" type="text">
+    </form>
+
+    <ul class="nav-links">
+      <li>
+        <a class="nav-link" href="http://www.google.com">Pull Requests</a>
+      </li>
+      <li>
+        <a class="nav-link" href="http://www.google.com">Issues</a>
+      </li>
+      <li>
+        <a class="nav-link" href="http://www.google.com">Gist</a>
+      </li>
+    </ul>
+
+    <a class="nav-link right" href="">
+      <img class="navatar" src="http://img.uvumi.com/photos/3223/small/cat-avatar.jpg"></img>
+      <span class="mega-octicon octicon-triangle-down"></span>
+    </a>
+
+    <a class="nav-link right" href="">
+      <span class="mega-octicon octicon-plus"></span>
+      <span class="mega-octicon octicon-triangle-down"></span>
+    </a>
+
+    <a class="nav-link right" href="http://www.google.com">
+      <span class="mega-octicon octicon-bell"></span>
+      <span class="mega-octicon octicon-primitive-dot"></span>
+    </a>
+
+  </div>
+</nav>
 
 <div class="main">
 
+<<<<<<< HEAD:app/views/profiles/result.html.erb
 
     <div class="vcard col-sm-3">
 
@@ -104,23 +114,61 @@
           <strong class="vcard-stat-count"><%= user_starred %></strong>
           <span class="text-muted">Starred</span>
         </a>
+=======
+  <div class="container-fluid">
+    <div class="column">
 
-        <a class="vcard-stat" href="http://github.com/<%= user_username %>/following">
-          <strong class="vcard-stat-count"><%= user_following %></strong>
-          <span class="text-muted">Following</span>
-        </a>
+      <div class="vcard col-sm-3">
+
+        <a class="vcard-avatar" href="https://github.com/settings/profile" style="display: block; position: relative;"><img class="avatar" src="<%= user_avatar_img %>"/></a>
+
+        <h1 class="vard-names">
+          <span class="vcard-fullname"><%= user_fullname %></span>
+          <span class="vcard-username"><%= user_username %></span>
+        </h1>
+
+        <ul class="vcard-details">
+          <li>
+            <span class="octicon octicon-location"></span><%= user_location %></li>
+          <li>
+            <span class="octicon octicon-link"></span>
+            <a href="<%= user_link %>"><%= user_link %></a>
+          </li>
+          <li>
+            <span class="octicon octicon-clock"></span><%= user_date_joined %></li>
+        </ul>
+
+        <div class="vcard-stats">
+          <a class="vcard-stat" href="http://github.com/<%= user_username %>/followers">
+            <strong class="vcard-stat-count"><%= user_followers %></strong>
+            <span class="text-muted">Followers</span>
+          </a>
+
+          <a class="vcard-stat" href="http://github.com/stars">
+            <strong class="vcard-stat-count"><%= user_starred %></strong>
+            <span class="text-muted">Starred</span>
+          </a>
+
+          <a class="vcard-stat" href="http://github.com/<%= user_username %>/following">
+            <strong class="vcard-stat-count"><%= user_following %></strong>
+            <span class="text-muted">Following</span>
+          </a>
+        </div>
+>>>>>>> mcjosh:app/views/profiles/profile.html.erb
+
+        <div class="vcard-organizations">
+          <h3 style="1.25em">Organizations</h3>
+          <% user_groups.each do |g| %>
+          <a alt="<%= g[:name] %>" class="org_avatar" href="https://github.com/<%= g[:name] %>"><img src="<%= g[:avatar] %>"/></a>
+          <% end %>
+        </div>
       </div>
 
-
-
-      <div class="vcard-organizations">
-        <h3 style="1.25em">Organizations</h3>
-        <% user_groups.each do |g| %>
-          <a class="org_avatar" href="https://github.com/<%= g[:name] %>" alt="<%= g[:name] %>"><img src="<%= g[:avatar] %>" /></a>
-        <% end %>
+      <div class="col-sm-9">
+        <span>somethign something</span>
       </div>
-    </div>
 
+<<<<<<< HEAD:app/views/profiles/result.html.erb
 
     <div class="col-sm-9">
       <ul class="nav nav-tabs">
@@ -157,23 +205,51 @@
 
 
 <!--Julie's footer bar B) -->
-
-<div class="footer clear">
-
-    <div class ="leftfooter">
-      © 2015 GitHub, <span class="footerspacing">Inc. <a href="https://github.com/site/terms">Terms</a> <a href="https://github.com/site/privacy">Privacy</a> <a href="https://github.com/security">Security</a> <a href="https://github.com/contact">Contact</a> <a href="https://help.github.com">Help</a></span>
+=======
     </div>
-
-    <div class="rightfooter">
-      <span class="footerspacing"><a href="https://status.github.com/">Status</a> <a href="https://developer.github.com/">API</a> <a href="https://training.github.com/">Training</a> <a href="https://shop.github.com/">Shop</a> <a href="https://github.com/blog/">Blog</a> <a href="https://github.com/about/">About</a> <a href="https://github.com/pricing/">Pricing</a></span>
-    </div>
-
-    <div id="shrink">
-      <a href="https://github.com"><span class="mega-octicon octicon-mark-github"></span></a>
-    </div>
+  </div>
 </div>
 
 
+>>>>>>> mcjosh:app/views/profiles/profile.html.erb
 
+<div class="footer clear">
+
+  <div class="leftfooter">
+    © 2015 GitHub,
+    <span class="footerspacing">Inc.
+      <a href="https://github.com/site/terms">Terms</a>
+      <a href="https://github.com/site/privacy">Privacy</a>
+      <a href="https://github.com/security">Security</a>
+      <a href="https://github.com/contact">Contact</a>
+      <a href="https://help.github.com">Help</a>
+    </span>
+  </div>
+
+  <div class="rightfooter">
+    <span class="footerspacing">
+      <a href="https://status.github.com/">Status</a>
+      <a href="https://developer.github.com/">API</a>
+      <a href="https://training.github.com/">Training</a>
+      <a href="https://shop.github.com/">Shop</a>
+      <a href="https://github.com/blog/">Blog</a>
+      <a href="https://github.com/about/">About</a>
+      <a href="https://github.com/pricing/">Pricing</a>
+    </span>
+  </div>
+
+<<<<<<< HEAD:app/views/profiles/result.html.erb
+    <div id="shrink">
+      <a href="https://github.com"><span class="mega-octicon octicon-mark-github"></span></a>
+    </div>
+=======
+  <div id="shrink">
+    <a href="https://github.com">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+  </div>
+
+>>>>>>> mcjosh:app/views/profiles/profile.html.erb
+</div>
 
 </div>
