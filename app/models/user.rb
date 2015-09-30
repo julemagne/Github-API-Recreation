@@ -88,14 +88,14 @@ class User
         repo_array << {
           name: repo["name"],
           description: repo["description"],
-          updated_at: format_updated_time(repo["updated_at"]),
+          updated_at: format_updated_time(repo["pushed_at"]),
           language: repo["language"],
           stargazers_url: repo["stargazers_url"],
           stargazers_count: repo["stargazers_count"],
           forks_url: repo["forks_url"],
           forks_count: repo["forks_count"],
           html_url: repo["html_url"],
-          sort_field: repo["updated_at"]
+          sort_field: repo["pushed_at"]
         }
       end
       repo_array.sort_by{|hash| hash[:sort_field]}.reverse
@@ -125,9 +125,15 @@ class User
 
     def format_updated_time(updated)
       update_time = Time.parse(updated)
+      update_time -= 4.hours
       updated = time_hash(update_time)
       current = time_hash(Time.now)
 
+      # time_difference = Time.now - update_time
+      # mm, ss = time_diffence.divmod(60)
+      # hh, mm = mm.divmod(60)
+      # dd, hh = hh.divmod(24)
+      #
       #Begin MONSTROUS if statement
       if updated[:year] == current[:year]
         if updated[:month] == current[:month]
@@ -137,7 +143,7 @@ class User
                 #Minutes are equal
                 difference = current[:second] - updated[:second]
                 return "Updated #{difference} seconds ago" unless difference == 1
-                return "Updated a second ago"
+                return "Updated just now"
               else
                 #Hours are equal
                 difference = current[:minute] - updated[:minute]
