@@ -1,3 +1,4 @@
+require 'byebug'
 class User
 
   def initialize(input) #input is params[:name]
@@ -87,14 +88,14 @@ class User
         repo_array << {
           name: repo["name"],
           description: repo["description"],
-          updated_at: format_updated_time(repo["pushed_at"]),
+          updated_at: format_updated_time(repo["updated_at"]),
           language: repo["language"],
           stargazers_url: repo["stargazers_url"],
           stargazers_count: repo["stargazers_count"],
           forks_url: repo["forks_url"],
           forks_count: repo["forks_count"],
           html_url: repo["html_url"],
-          sort_field: repo["pushed_at"]
+          sort_field: repo["updated_at"]
         }
       end
       repo_array.sort_by{|hash| hash[:sort_field]}.reverse
@@ -114,10 +115,10 @@ class User
   end
     def get_repos(user)
       key=ENV['GITHUB_CLIENT_ID']
-      HTTParty.get("https://api.github.com/users/#{user}/repos"), headers: {
+      HTTParty.get("https://api.github.com/users/#{user}/repos", headers: {
         "GITHUB_USERNAME" => "#{key}",
         "User-Agent" => "GITHUB_USERNAME"
-      }
+      })
       # file = "./test/json/results.json"
       # JSON.parse(File.read(file))
     end
