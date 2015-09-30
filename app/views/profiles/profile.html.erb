@@ -1,3 +1,27 @@
+<%
+  user_avatar_img = "https://pbs.twimg.com/profile_images/557296415261470722/_v5a2HI1.jpeg"
+  user_fullname = "Mason Matthews"
+  user_username = "masonfmatthews"
+  user_location = "Raleigh, NC"
+  user_date_joined = "Sept 20, 2010"
+  user_link = "http://bernheisel.com"
+
+  user_followers = "20"
+  user_starred = "30"
+  user_following = "40"
+
+  user_groups = [
+    { name: "one",
+      avatar: "http://orig10.deviantart.net/ceb8/f/2013/186/f/c/free_to_use_grumpy_cat_icon_by_lost_stars_and_sins-d6c68vc.gif"},
+    { name: "two",
+      avatar: "http://orig10.deviantart.net/ceb8/f/2013/186/f/c/free_to_use_grumpy_cat_icon_by_lost_stars_and_sins-d6c68vc.gif"},
+    { name: "three",
+      avatar: "http://orig10.deviantart.net/ceb8/f/2013/186/f/c/free_to_use_grumpy_cat_icon_by_lost_stars_and_sins-d6c68vc.gif"}
+  ]
+
+%>
+
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -32,28 +56,58 @@
 <div class="main">
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="vcard col-md-4">
-      <h1 class="vard-names">>
-        <a href="https://github.com/settings/profile" class="vcard-avatar"><img /></a>
-        <span class="vcard-fullname"></span>
-        <span class="vcard-username"></span>
+  <div class="column">
+
+    <div class="vcard col-sm-3">
+
+      <a style="display: block; position: relative;" href="https://github.com/settings/profile" class="vcard-avatar"><img src="<%= user_avatar_img %>" class="avatar" /></a>
+
+      <h1 class="vard-names">
+        <span class="vcard-fullname"><%= user_fullname %></span>
+        <span class="vcard-username"><%= user_username %></span>
       </h1>
 
+
+
       <ul class="vcard-details">
-        <li><span class="octicon octicon-location"></span><%= @location %></li>
-        <li><span class="octicon octicon-link"></span><%= @link %></li>
-        <li><span class="octicon octicon-clock"></span><%= @date_joined %></li>
+        <li><span class="octicon octicon-location"></span><%= user_location %></li>
+        <li><span class="octicon octicon-link"></span><a href="<%= user_link %>"><%= user_link %></a></li>
+        <li><span class="octicon octicon-clock"></span><%= user_date_joined %></li>
       </ul>
 
-      <div class="vcard-stats"></div>
 
-      <div class="vcard-organizations"></div>
+
+      <div class="vcard-stats">
+        <a class="vcard-stat" href="http://github.com/<%= user_username %>/followers">
+          <strong class="vcard-stat-count"><%= user_followers %></strong>
+          <span class="text-muted">Followers</span>
+        </a>
+
+        <a class="vcard-stat" href="http://github.com/stars">
+          <strong class="vcard-stat-count"><%= user_starred %></strong>
+          <span class="text-muted">Starred</span>
+        </a>
+
+        <a class="vcard-stat" href="http://github.com/<%= user_username %>/following">
+          <strong class="vcard-stat-count"><%= user_following %></strong>
+          <span class="text-muted">Following</span>
+        </a>
+      </div>
+
+
+
+      <div class="vcard-organizations">
+        <h3 style="1.25em">Organizations</h3>
+        <% user_groups.each do |g| %>
+          <a class="org_avatar" href="https://github.com/<%= g[:name] %>" alt="<%= g[:name] %>"><img src="<%= g[:avatar] %>" /></a>
+        <% end %>
+      </div>
     </div>
 
-    <div class="col-md-8">
-
+    <div class="col-sm-9">
+      <span>somethign something</span>
     </div>
+
   </div>
 </div>
 </div>
