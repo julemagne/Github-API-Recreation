@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .vcard {
   font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   color: #333;
@@ -32,8 +31,6 @@
   margin-bottom: 15px;
   font-size: 2em;
 }
-
-
 
 .vcard-fullname {
 
@@ -159,19 +156,6 @@
   float: left;
 }
 
-a {
-  float:left;
-  font-weight:bold;
-}
-
-a:hover {
-  color:'#00f';
-}
-
-a:link {
-  color:black;
-}
-
 .navbar-header {
   float:left;
 }
@@ -218,4 +202,58 @@ a:link {
 .vcard-organizations > h3 {
   font-size: 1.25em;
   font-weight: bold;
+
+
+
+// Julie's styles B)
+
+
+.footer{
+  padding-top: 40px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  background-color: white;
+  border-top: solid #EEEEEE;
+  border-width: 1px;
+  height: 80px;
+  width: 980px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #767676;
+}
+
+.footerspacing{
+  word-spacing: 10px;
+}
+
+.leftfooter{
+  position: absolute;
+  left: 0;
+  float: left;
+}
+
+.rightfooter{
+  position: absolute;
+  right: 0;
+  float: right;
+}
+
+#shrink{
+    position: absolute;
+    margin-top: -60px;
+    margin-left: 600px;
+    padding: 60px;
+    opacity: 0.4;
+    zoom: 0.75;
+    -moz-transform: scale(0.7);
+    z-index: 1;
+}
+
+#shrink a:hover{
+  color: black;
+}
+
+#shrink a{
+  color: #767676;
 }
