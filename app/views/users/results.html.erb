@@ -1,2 +1,190 @@
-<h1>Users#results</h1>
-<p>Find me in app/views/users/results.html.erb</p>
+<%
+  user_avatar_img = "https://pbs.twimg.com/profile_images/557296415261470722/_v5a2HI1.jpeg"
+  user_fullname = "Mason Matthews"
+  user_username = "masonfmatthews"
+  user_location = "Raleigh, NC"
+  user_date_joined = "Sept 20, 2010"
+  user_link = "http://bernheisel.com"
+
+  user_followers = "20"
+  user_starred = "30"
+  user_following = "40"
+
+  user_groups = [
+    { name: "one",
+      avatar: "http://orig10.deviantart.net/ceb8/f/2013/186/f/c/free_to_use_grumpy_cat_icon_by_lost_stars_and_sins-d6c68vc.gif"},
+    { name: "two",
+      avatar: "http://orig10.deviantart.net/ceb8/f/2013/186/f/c/free_to_use_grumpy_cat_icon_by_lost_stars_and_sins-d6c68vc.gif"},
+    { name: "three",
+      avatar: "http://orig10.deviantart.net/ceb8/f/2013/186/f/c/free_to_use_grumpy_cat_icon_by_lost_stars_and_sins-d6c68vc.gif"}
+  ]
+
+  user_repositories = [
+    { name: "repository name 1",
+      description: "repository description 1",
+      meta: "Updated some hours ago",
+      forks: 123,
+      stars: 10,
+      language: "Ruby"},
+    { name: "repository name 2",
+      description: "repository description 2",
+      meta: "Updated some hours ago",
+      forks: 9,
+      stars: 3213,
+      language: "HTML"},
+    { name: "repository name 3",
+      description: "repository description 3",
+      meta: "Updated some hours ago",
+      forks: 123,
+      stars: 10,
+      language: "CSS"}
+  ]
+%>
+
+
+
+
+<nav id="gnawbar">
+  <div id="gnaw-cont">
+
+    <a class="nav-link" href="https://www.github.com">
+      <span class="mega-octicon octicon-mark-github"></span>
+    </a>
+
+    <form class="">
+        <input class="gnawput" placeholder="Search Cathub" type="text">
+    </form>
+
+    <ul class="nav-links">
+      <li>
+        <a class="nav-link" href="http://www.google.com">Pull Requests</a>
+      </li>
+      <li>
+        <a class="nav-link" href="http://www.google.com">Issues</a>
+      </li>
+      <li>
+        <a class="nav-link" href="http://www.google.com">Gist</a>
+      </li>
+    </ul>
+
+    <a class="nav-link right" href="">
+      <img class="navatar" src="http://img.uvumi.com/photos/3223/small/cat-avatar.jpg"></img>
+      <span class="mega-octicon octicon-triangle-down"></span>
+    </a>
+
+    <a class="nav-link right" href="">
+      <span class="mega-octicon octicon-plus"></span>
+      <span class="mega-octicon octicon-triangle-down"></span>
+    </a>
+
+    <a class="nav-link right" href="http://www.google.com">
+      <span class="mega-octicon octicon-bell"></span>
+      <span class="mega-octicon octicon-primitive-dot"></span>
+    </a>
+
+  </div>
+</nav>
+
+<div class="main">
+
+
+    <div class="vcard col-sm-3">
+
+      <a style="display: block; position: relative;" href="https://github.com/settings/profile" class="vcard-avatar"><img src="<%= user_avatar_img %>" class="avatar" /></a>
+
+      <h1 class="vard-names">
+        <span class="vcard-fullname"><%= @person.name %></span>
+        <span class="vcard-username"><%= user_username %></span>
+      </h1>
+
+
+      <div class="vcard-details">
+        <div><span class="octicon octicon-location"></span><%= user_location %></div>
+        <div><span class="octicon octicon-link"></span><a href="<%= user_link %>"><%= user_link %></a></div>
+        <div><span class="octicon octicon-clock"></span><%= user_date_joined %></div>
+      </div>
+
+
+      <div class="vcard-stats">
+        <a class="vcard-stat" href="http://github.com/<%= user_username %>/followers">
+          <strong class="vcard-stat-count"><%= user_followers %></strong>
+          <span class="text-muted">Followers</span>
+        </a>
+
+        <a class="vcard-stat" href="http://github.com/stars">
+          <strong class="vcard-stat-count"><%= user_starred %></strong><br/>
+          <span class="text-muted">Starred</span>
+        </a>
+
+        <a class="vcard-stat" href="http://github.com/<%= user_username %>/following">
+          <strong class="vcard-stat-count"><%= user_following %></strong>
+          <span class="text-muted">Following</span>
+        </a>
+      </div>
+
+
+
+      <div class="vcard-organizations">
+        <h3 style="1.25em">Organizations</h3>
+        <% user_groups.each do |g| %>
+          <a class="org_avatar" href="https://github.com/<%= g[:name] %>" alt="<%= g[:name] %>"><img src="<%= g[:avatar] %>" /></a>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="col-sm-9">
+      <ul class="nav nav-tabs">
+        <li><a href="#">Contributions</a></li>
+        <li class="active"><a href="#">Repositories</a></li>
+        <li><a href="#">Public Activity</a></li>
+      </ul>
+
+      <div id="repo-tab">
+        <div class="filter-bar"
+        </div>
+        <% user_repositories.each do |r| %>
+          <li class="repo-list-item">
+            <div class="repo-stats">
+              <a class="repo-list-stat-item" href=""><span class="octicon octicon-star"></span><%= r[:stars] %></a>
+              <a class="repo-list-stat-item" href="#"><span class="octicon octicon-git-branch"></span><%= r[:forks] %></a>
+            </div>
+            <h3 class="repo-list-name"><a href="http://github.com/<%= user_username %>/<%= r[:name] %>"><%= r[:name] %></a></h3>
+            <p class="repo-list-description"><%= r[:description] %></p>
+            <p class="repo-list-meta"><%= r[:meta] %></p>
+            <p class="repo-list-meta"><%= r[:language] %></p>
+            <div class="participation-graph"></div>
+          </li>
+        <% end %>
+
+
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!--Julie's footer bar B) -->
+
+<div class="footer clear">
+
+    <div class ="leftfooter">
+      © 2015 GitHub, <span class="footerspacing">Inc. <a href="https://github.com/site/terms">Terms</a> <a href="https://github.com/site/privacy">Privacy</a> <a href="https://github.com/security">Security</a> <a href="https://github.com/contact">Contact</a> <a href="https://help.github.com">Help</a></span>
+    </div>
+
+    <div class="rightfooter">
+      <span class="footerspacing"><a href="https://status.github.com/">Status</a> <a href="https://developer.github.com/">API</a> <a href="https://training.github.com/">Training</a> <a href="https://shop.github.com/">Shop</a> <a href="https://github.com/blog/">Blog</a> <a href="https://github.com/about/">About</a> <a href="https://github.com/pricing/">Pricing</a></span>
+    </div>
+
+    <div id="shrink">
+      <a href="https://github.com"><span class="mega-octicon octicon-mark-github"></span></a>
+    </div>
+</div>
+
+
+
+
+</div>

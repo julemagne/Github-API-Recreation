@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   end
 
   def results
-    @user = params[:username]
-    person = User.new(@user)
-    get_info = person.pull_repo_info
-    render json: get_info
+    @user = params[:name]
+    @person = User.new(@user)
+    # get_info = person.pull_repo_info
+    # render json: get_info
   end
 end

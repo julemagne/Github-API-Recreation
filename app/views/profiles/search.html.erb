@@ -1,9 +1,15 @@
-<form action="http://github.com/user">
-<p>
-  <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" height="60" width="60">
-  <p>Enter your username</p>
-  <p>
-    <label for="name_field">Name:</label>
-  </p>
-  <input name="name"></input>
-</form>
+
+<div class="container fullscreen">
+    <div class="panel panel-default loginbox">
+      <div class="panel-body text-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/200px-PEO-octocat-1.svg.png">
+        <div class="form-group">
+          <%= form_tag 'profiles/profile' do %>
+            <p><%= text_field_tag :name, nil, placeholder: "GitHub username", class: "form-control" %></p>
+
+            <p><%= submit_tag "Get Profile", class:"btn btn-primary" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
