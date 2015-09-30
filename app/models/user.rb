@@ -20,6 +20,9 @@ class User
     @response["login"]
   end
 
+  def address
+    @response["html_url"]
+
   def work
     @response["company"]
   end
@@ -33,7 +36,7 @@ class User
 
    month=raw_date[5..6]
 
-   months_array = ["January", "February", "March", "April", "May", "June", "July", "August", "Septemer", "October", "November", "December"]
+   months_array = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
    case month
    when "01"
