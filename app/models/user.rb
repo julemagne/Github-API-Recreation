@@ -126,13 +126,13 @@ class User
 
   def get_response
     response = HTTParty.get("https://api.github.com/users/#{@username}", :basic_auth => auth )
-    return {} if response["message"].include?("API rate limit exceeded")
+    # return {} if response["message"].include?("API rate limit exceeded")
     return response.response unless response.response.nil?
   end
 
   def organization_response
     response = HTTParty.get("https://api.github.com/users/#{@username}/orgs", :basic_auth => auth)
-    return [] if response["message"].include?("API rate limit exceeded")
+    # return [] if response["message"].include?("API rate limit exceeded")
     return response unless response.nil?
   end
 
@@ -140,7 +140,7 @@ class User
     response = HTTParty.get("https://api.github.com/users/#{user}/repos", :basic_auth => auth)
     # file = "./test/json/results.json"
     # JSON.parse(File.read(file))
-    return [] if response["message"].include?("API rate limit exceeded")
+    # return [] if response["message"].include?("API rate limit exceeded")
     return response unless response.nil?
   end
 
